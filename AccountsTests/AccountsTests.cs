@@ -28,6 +28,9 @@ public class AccountTests
             Assert.That(savingsAccount.InterestRate, Is.EqualTo(0.05));
         }
         
-        // TODO: Create a test for CheckingAccount using the same pattern matching technique
+        if (account is CheckingAccount checkingAccount)
+        {
+            Assert.That(checkingAccount.InterestRate, Is.EqualTo(0.02));
+        }
     }
 }
