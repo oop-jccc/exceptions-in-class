@@ -7,10 +7,18 @@ public record Coordinates
 
     public Coordinates(double latitude, double longitude)
     {
-        // TODO: validate latitude, should be between -90 and 90, throw ArgumentException if not
+        if (latitude is > 90 or < -90)
+        {
+            throw new ArgumentException("Latitude should be between -90 and 90");
+        }
+
         Latitude = latitude;
 
-        // TODO: validate longitude, should be between -180 and 180, throw ArgumentException if not
+        if (longitude is > 180 or < -180)
+        {
+            throw new ArgumentException("Longitude should be between -180 and 180");
+        }
+
         Longitude = longitude;
     }
 }
